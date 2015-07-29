@@ -106,7 +106,7 @@
 - (void)reloadTableView
 {
 	[self.tableView reloadData];
-	[self.navigationItem setTitle:NSLocalizedString(@"Select an Album", nil)];
+	[self.navigationItem setTitle:NSLocalizedString(@"Albums", nil)];
 }
 
 - (BOOL)shouldSelectAsset:(ELCAsset *)asset previousCount:(NSUInteger)previousCount
