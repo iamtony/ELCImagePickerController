@@ -34,8 +34,6 @@
         
         NSMutableArray *overlayArray = [[NSMutableArray alloc] initWithCapacity:4];
         self.overlayViewArray = overlayArray;
-        
-        self.alignmentLeft = YES;
 	}
 	return self;
 }
@@ -82,17 +80,8 @@
 - (void)cellTapped:(UITapGestureRecognizer *)tapRecognizer
 {
     CGPoint point = [tapRecognizer locationInView:self];
-    int c = (int32_t)self.rowAssets.count;
-    CGFloat totalWidth = c * 75 + (c - 1) * 4;
-    CGFloat startX;
-    
-    if (self.alignmentLeft) {
-        startX = 4;
-    }else {
-        startX = (self.bounds.size.width - totalWidth) / 2;
-    }
-    
-	CGRect frame = CGRectMake(startX, 2, 75, 75);
+
+	CGRect frame = CGRectMake(4, 2, 75, 75);
 	
 	for (int i = 0; i < [_rowAssets count]; ++i) {
         if (CGRectContainsPoint(frame, point)) {
@@ -118,17 +107,7 @@
 
 - (void)layoutSubviews
 {
-    int c = (int32_t)self.rowAssets.count;
-    CGFloat totalWidth = c * 75 + (c - 1) * 4;
-    CGFloat startX;
-    
-    if (self.alignmentLeft) {
-        startX = 4;
-    }else {
-        startX = (self.bounds.size.width - totalWidth) / 2;
-    }
-    
-	CGRect frame = CGRectMake(startX, 2, 75, 75);
+	CGRect frame = CGRectMake(4, 2, 75, 75);
 	
 	for (int i = 0; i < [_rowAssets count]; ++i) {
 		UIImageView *imageView = [_imageViewArray objectAtIndex:i];
