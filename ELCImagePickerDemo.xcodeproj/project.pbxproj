@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B67B05B17E0ED1F002CC2C5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B67B05A17E0ED1F002CC2C5 /* Default-568h@2x.png */; };
+		0CB8F14D1B697B4800BAAAAF /* Overlay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CB8F14C1B697B4800BAAAAF /* Overlay@3x.png */; };
 		1A2C100517026CF0004FAFA0 /* ELCAssetTablePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C0FFB17026CF0004FAFA0 /* ELCAssetTablePicker.m */; };
 		1A2C100617026CF0004FAFA0 /* ELCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C0FFC17026CF0004FAFA0 /* ELCImagePickerController.m */; };
 		1A2C100717026CF0004FAFA0 /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C0FFE17026CF0004FAFA0 /* ELCAlbumPickerController.m */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		0B67B05A17E0ED1F002CC2C5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0CB8F14C1B697B4800BAAAAF /* Overlay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Overlay@3x.png"; path = "Classes/ELCImagePicker/Resources/Overlay@3x.png"; sourceTree = "<group>"; };
 		1A2C0FFA17026CF0004FAFA0 /* ELCAssetTablePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetTablePicker.h; sourceTree = "<group>"; };
 		1A2C0FFB17026CF0004FAFA0 /* ELCAssetTablePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetTablePicker.m; sourceTree = "<group>"; };
 		1A2C0FFC17026CF0004FAFA0 /* ELCImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCImagePickerController.m; sourceTree = "<group>"; };
@@ -144,12 +146,13 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				83C6BC9614476B280064D71D /* elc-ios-icon.png */,
+				83C6BC9514476B280064D71D /* elc-ios-icon@2x.png */,
+				8D1107310486CEB800E47090 /* ELCImagePickerDemo-Info.plist */,
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				1A4C631217380272001E0978 /* Overlay.png */,
 				1A4C631317380272001E0978 /* Overlay@2x.png */,
-				83C6BC9514476B280064D71D /* elc-ios-icon@2x.png */,
-				83C6BC9614476B280064D71D /* elc-ios-icon.png */,
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
-				8D1107310486CEB800E47090 /* ELCImagePickerDemo-Info.plist */,
+				0CB8F14C1B697B4800BAAAAF /* Overlay@3x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* ELCImagePickerDemoViewController.xib in Resources */,
 				83C6BC9714476B280064D71D /* elc-ios-icon@2x.png in Resources */,
+				0CB8F14D1B697B4800BAAAAF /* Overlay@3x.png in Resources */,
 				83C6BC9814476B280064D71D /* elc-ios-icon.png in Resources */,
 				230644BC15F8C0BB007679C7 /* MainWindow-iPad.xib in Resources */,
 				0B67B05B17E0ED1F002CC2C5 /* Default-568h@2x.png in Resources */,
