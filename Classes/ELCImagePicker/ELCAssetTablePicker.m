@@ -11,6 +11,8 @@
 #import "ELCAlbumPickerController.h"
 #import "ELCConsole.h"
 
+#define NUM_COLUMNS 4
+
 @interface ELCAssetTablePicker ()
 
 @property (nonatomic, assign) int columns;
@@ -57,7 +59,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.columns = self.view.bounds.size.width / 80;
+    self.columns = NUM_COLUMNS;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -75,7 +77,7 @@
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-    self.columns = self.view.bounds.size.width / 80;
+    self.columns = NUM_COLUMNS;
     [self.tableView reloadData];
 }
 
@@ -232,7 +234,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.columns <= 0) { //Sometimes called before we know how many columns we have
-        self.columns = 4;
+        self.columns = NUM_COLUMNS;
     }
     NSInteger numRows = ceil([self.elcAssets count] / (float)self.columns);
     return numRows;
@@ -263,7 +265,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return 79;
+    // Height should return the same CGFloat as the maximum width of an asset so that assets are square in size
+    CGFloat height = (([UIScreen mainScreen].bounds.size.width - (self.columns - 1)) / self.columns) + 1;
+    return height;
 }
 
 - (int)totalSelectedAssets

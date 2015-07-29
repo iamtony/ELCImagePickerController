@@ -68,6 +68,8 @@
         } else {
             if (overlayImage == nil) {
                 overlayImage = [UIImage imageNamed:@"Overlay.png"];
+                // Allow for resizing of the image but keep the "check mark" from resizing
+                overlayImage = [overlayImage resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 60, 60)];
             }
             ELCOverlayImageView *overlayView = [[ELCOverlayImageView alloc] initWithImage:overlayImage];
             [_overlayViewArray addObject:overlayView];
@@ -81,7 +83,8 @@
 {
     CGPoint point = [tapRecognizer locationInView:self];
 
-	CGRect frame = CGRectMake(4, 2, 75, 75);
+    CGFloat assetWidth = [self widthForAsset];
+    CGRect frame = CGRectMake(0, 1, assetWidth, assetWidth);
 	
 	for (int i = 0; i < [_rowAssets count]; ++i) {
         if (CGRectContainsPoint(frame, point)) {
@@ -101,13 +104,14 @@
             }
             break;
         }
-        frame.origin.x = frame.origin.x + frame.size.width + 4;
+        frame.origin.x = frame.origin.x + frame.size.width + 1;
     }
 }
 
 - (void)layoutSubviews
 {
-	CGRect frame = CGRectMake(4, 2, 75, 75);
+    CGFloat assetWidth = [self widthForAsset];
+	CGRect frame = CGRectMake(0, 1, assetWidth, assetWidth);
 	
 	for (int i = 0; i < [_rowAssets count]; ++i) {
 		UIImageView *imageView = [_imageViewArray objectAtIndex:i];
@@ -118,8 +122,19 @@
         [overlayView setFrame:frame];
         [self addSubview:overlayView];
 		
-		frame.origin.x = frame.origin.x + frame.size.width + 4;
+		frame.origin.x = frame.origin.x + frame.size.width + 1;
 	}
+}
+
+// Obtain the maximum width of an asset so that we show 4 assets per row with 1px separators into consideration
+- (CGFloat)widthForAsset
+{
+    // Number of columns to show
+    NSUInteger columns = 4;
+    
+    CGFloat totalScreenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat assetWidth = (totalScreenWidth - (columns - 1)) / columns;
+    return assetWidth;
 }
 
 
