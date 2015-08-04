@@ -122,6 +122,35 @@
         [overlayView setFrame:frame];
         [self addSubview:overlayView];
 		
+        ELCAsset *asset = [_rowAssets objectAtIndex:i];
+        NSString *assetType = [asset.asset valueForProperty:ALAssetPropertyType];
+        if ([assetType isEqualToString:ALAssetTypeVideo]) {
+            UIImage *movieIndicatorImage = [UIImage imageNamed:@"video-file"];
+            UIImageView *movieIndicator = [[UIImageView alloc] initWithImage:movieIndicatorImage];
+            movieIndicator.frame = CGRectMake(frame.origin.x,
+                                              frame.origin.y + frame.size.height - movieIndicatorImage.size.height,
+                                              frame.size.width,
+                                              movieIndicatorImage.size.height);
+            [self insertSubview:movieIndicator belowSubview:overlayView];
+            
+            NSNumber *duration = [asset.asset valueForProperty:ALAssetPropertyDuration];
+            int secs = [duration intValue] % 60;
+            int mins = [duration intValue] / 60;
+            
+            UILabel *durationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
+            durationLabel.textColor = [UIColor whiteColor];
+            durationLabel.backgroundColor = [UIColor clearColor];
+            durationLabel.text = [NSString stringWithFormat:@"%d:%02d", mins, secs];
+            durationLabel.font = [UIFont systemFontOfSize:12.0f];
+            [durationLabel sizeToFit];
+            CGRect durationFrame = durationLabel.frame;
+            durationLabel.frame = CGRectMake(frame.origin.x + frame.size.width - durationFrame.size.width - 2,
+                                             frame.size.height - durationFrame.size.height - 2,
+                                             durationFrame.size.width,
+                                             durationFrame.size.height);
+            [self insertSubview:durationLabel aboveSubview:movieIndicator];
+        }
+        
 		frame.origin.x = frame.origin.x + frame.size.width + 1;
 	}
 }
