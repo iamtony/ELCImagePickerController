@@ -144,7 +144,7 @@
             durationLabel.font = [UIFont systemFontOfSize:12.0f];
             [durationLabel sizeToFit];
             CGRect durationFrame = durationLabel.frame;
-            durationLabel.frame = CGRectMake(frame.origin.x + frame.size.width - durationFrame.size.width - 2,
+            durationLabel.frame = CGRectMake(frame.origin.x + frame.size.width - durationFrame.size.width - 4,
                                              frame.size.height - durationFrame.size.height - 2,
                                              durationFrame.size.width,
                                              durationFrame.size.height);
