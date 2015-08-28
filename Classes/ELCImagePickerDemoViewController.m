@@ -151,5 +151,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)elcImagePickerControllerDidSelectTooManyAssets:(ELCImagePickerController *)picker
+{
+    // Do something when too many assets were selected!
+}
 
 @end

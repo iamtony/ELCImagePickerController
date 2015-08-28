@@ -28,6 +28,14 @@
  */
 - (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker;
 
+
+/**
+ *  Called when the user selects too many assets from the picker
+ *
+ *  @param picker
+ */
+- (void)elcImagePickerControllerDidSelectTooManyAssets:(ELCImagePickerController *)picker;
+
 @end
 
 @interface ELCImagePickerController : UINavigationController <ELCAssetSelectionDelegate>
